@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@material-ui/icons": "^3.0.2",
     "mdbreact": "^4.10.0",
     "react": "^16.8.1",
     "react-dom": "^16.8.1",

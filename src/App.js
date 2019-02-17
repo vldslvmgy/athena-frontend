@@ -8,6 +8,7 @@ class App extends Component {
   render() {
     return (
       <Layout>
+        <Navbar />
         <Router>
           <Route path="/profile" component={Profile} />
         </Router>
