@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-class Profile extends Component {
+class Footer extends Component {
   constructor() {
     super();
     this.state = {};
@@ -15,4 +15,4 @@ class Profile extends Component {
   }
 }
 
-export default Profile;
+export default Footer;
