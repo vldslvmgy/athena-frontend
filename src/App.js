@@ -6,7 +6,6 @@ import Layout from './components/Layout/Layout';
 import Navbar from './components/Navbar/Navbar'
 import Footer from './components/Footer/Footer';
 
-
 class App extends Component {
   render() {
     return (
@@ -15,6 +14,7 @@ class App extends Component {
         <Router>
           <Route path="/profile" component={Profile} />
         </Router>
+        <Footer />
       </Layout>
     );
   }
