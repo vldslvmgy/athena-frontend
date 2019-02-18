@@ -16,6 +16,7 @@ import AccountCircle from '@material-ui/icons/AccountCircle';
 import MailIcon from '@material-ui/icons/Mail';
 import NotificationsIcon from '@material-ui/icons/Notifications';
 import MoreIcon from '@material-ui/icons/MoreVert';
+import { withRouter } from 'react-router-dom'
 
 const styles = theme => ({
     root: {
@@ -96,8 +97,10 @@ class Navbar extends React.Component {
         mobileMoreAnchorEl: null,
     };
 
-    handleProfileMenuOpen = event => {
+    handleProfileRedirect = (event) => {
         this.setState({ anchorEl: event.currentTarget });
+        this.props.history.push('/profile');
+        this.handleMenuClose();
     };
 
     handleMenuClose = () => {
@@ -118,19 +121,6 @@ class Navbar extends React.Component {
         const { classes } = this.props;
         const isMenuOpen = Boolean(anchorEl);
         const isMobileMenuOpen = Boolean(mobileMoreAnchorEl);
-
-        const renderMenu = (
-            <Menu
-                anchorEl={anchorEl}
-                anchorOrigin={{ vertical: 'top', horizontal: 'right' }}
-                transformOrigin={{ vertical: 'top', horizontal: 'right' }}
-                open={isMenuOpen}
-                onClose={this.handleMenuClose}
-            >
-                <MenuItem onClick={this.handleMenuClose}>Profile</MenuItem>
-                <MenuItem onClick={this.handleMenuClose}>My account</MenuItem>
-            </Menu>
-        );
 
         const renderMobileMenu = (
             <Menu
@@ -156,7 +146,7 @@ class Navbar extends React.Component {
                     </IconButton>
                     <p>Notifications</p>
                 </MenuItem>
-                <MenuItem onClick={this.handleProfileMenuOpen}>
+                <MenuItem onClick={this.handleProfileRedirect}>
                     <IconButton color="inherit">
                         <AccountCircle />
                     </IconButton>
@@ -203,7 +193,7 @@ class Navbar extends React.Component {
                             <IconButton
                                 aria-owns={isMenuOpen ? 'material-appbar' : undefined}
                                 aria-haspopup="true"
-                                onClick={this.handleProfileMenuOpen}
+                                onClick={this.handleProfileRedirect}
                                 color="inherit"
                             >
                                 <AccountCircle />
@@ -216,7 +206,6 @@ class Navbar extends React.Component {
                         </div>
                     </Toolbar>
                 </AppBar>
-                {renderMenu}
                 {renderMobileMenu}
             </div>
         );
@@ -227,4 +216,4 @@ Navbar.propTypes = {
     classes: PropTypes.object.isRequired,
 };
 
-export default withStyles(styles)(Navbar);
+export default withStyles(styles)(withRouter(Navbar));
