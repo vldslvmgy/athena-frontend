@@ -5,6 +5,7 @@ import { BrowserRouter as Router } from 'react-router-dom';
 import Layout from './components/Layout/Layout';
 import Navbar from './components/Navbar/Navbar'
 import Lists from './components/Lists/Lists'
+import Footer from './components/Footer/Footer';
 
 class App extends Component {
   render() {
@@ -17,6 +18,7 @@ class App extends Component {
             <Route path='/lists' component={Lists} />
           </div>
         </Router>
+        <Footer />
       </Layout>
     );
   }
