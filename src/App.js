@@ -6,6 +6,12 @@ import Layout from './components/Layout/Layout';
 import Navbar from './components/Navbar/Navbar'
 import Lists from './components/Lists/Lists'
 import Footer from './components/Footer/Footer';
+import styled from 'styled-components';
+
+const Wrapper = styled.div`
+  position:absolute;
+  top:64px;
+`;
 
 class App extends Component {
   render() {
@@ -13,10 +19,10 @@ class App extends Component {
       <Layout>
         <Navbar />
         <Router>
-          <div>
+          <Wrapper>
             <Route path="/profile" component={Profile} />
             <Route path='/lists' component={Lists} />
-          </div>
+          </Wrapper>
         </Router>
         <Footer />
       </Layout>
