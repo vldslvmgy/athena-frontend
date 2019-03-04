@@ -45,6 +45,10 @@ const Triangle = styled.i`
 const Wrapper = styled.div``;
 
 
+const Year = styled.span`
+  opacity: 0.6;
+`;
+
 class Lists extends Component {
   constructor() {
     super();
@@ -115,10 +119,16 @@ class Lists extends Component {
         <List>
           {
             movies.map((movie) => {
+              const primary = (
+                <React.Fragment>
+                  <span>{movie.title}</span>
+                  <Year>  ({movie.year})</Year>
+                </React.Fragment>
+              );
               return (
                 <ListItem button>
                   <ListItemText
-                    primary={movie.title}
+                    primary={primary}
                   />
                 </ListItem>
               )
