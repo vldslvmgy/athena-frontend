@@ -8,8 +8,6 @@ import Footer from './components/Footer/Footer';
 import styled from 'styled-components';
 
 const Content = styled.div`
-  /* position:absolute;
-  top:64px; */
 `;
 
 class App extends Component {
