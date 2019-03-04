@@ -4,9 +4,7 @@ import { withRouter } from 'react-router-dom';
 
 const Wrapper = styled.div`
   background-color: whitesmoke;
-  bottom: 0;
   font-size: 12px;
-  position: absolute;
   width: 100%;
 `;
 
