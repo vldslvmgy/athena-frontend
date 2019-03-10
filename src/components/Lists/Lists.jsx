@@ -3,41 +3,76 @@ import styled from 'styled-components';
 import { withRouter } from 'react-router-dom';
 
 const Container = styled.div`
+  font-size:16px;
+  -webkit-user-select: none; /* webkit (safari, chrome) browsers */
+  -moz-user-select: none; /* mozilla browsers */
+  -khtml-user-select: none; /* webkit (konqueror) browsers */
+  -ms-user-select: none; /* IE10+ */
+`;
 
-  `
+const SidebarTitle = styled.p`
+  cursor: pointer;
+  margin:0;
+  padding-right:100px;
+  padding-top:10px;
+  padding-bottom:10px;
+  :hover {
+    background-color:whitesmoke;
+  }
+`;
+
+const List = styled.ul`
+  list-style-type: none;
+  margin-right:100px;
+`;
+
+const ListEntry = styled.li`
+  padding-top:5px;
+`
+const Triangle = styled.i`
+  padding-top:10px;
+  padding-bottom:10px;
+`
 
 class Lists extends Component {
   constructor() {
     super();
     this.state = {
-      movies:["List1", "List2", "List3"],
-      spotify:["List1"],
-      showMovies:false,
-      showSpotify:false
+      movies: ["List1", "List2", "List3"],
+      spotify: ["List1"],
+      showMovies: false,
+      showSpotify: false
     };
   }
 
-  clickMovies =() => {
+  clickMovies = () => {
     this.setState({
-      showMovies:!this.state.showMovies
+      showMovies: !this.state.showMovies
     })
   }
 
-  clickSpotify =() => {
+  clickSpotify = () => {
     this.setState({
-      showSpotify:!this.state.showSpotify
+      showSpotify: !this.state.showSpotify
     })
   }
 
   render() {
-    const movieList = this.state.movies.map((movie) => <li key={movie}>{movie}</li>);
-    const spotifyList = this.state.spotify.map((spotify) => <li key={spotify}>{spotify}</li>);
+    const movieList = this.state.movies.map((movie) => <ListEntry key={movie}>{movie}</ListEntry>);
+    const spotifyList = this.state.spotify.map((spotify) => <ListEntry key={spotify}>{spotify}</ListEntry>);
     return (
       <Container>
-        <ul>
+        <List className="fa-ul">
           <li>
-            <p onClick={this.clickMovies}>Movies</p>
-            {this.state.showMovies ? 
+            <span className="fa-li" >
+              {this.state.showMovies ?
+                <Triangle className="fas fa-caret-down"></Triangle>
+                :
+                <Triangle className="fas fa-caret-right"></Triangle>
+              }
+            </span>
+            <SidebarTitle onClick={this.clickMovies}>Movies</SidebarTitle>
+            {this.state.showMovies ?
               <ul>
                 {movieList}
               </ul>
@@ -46,8 +81,15 @@ class Lists extends Component {
             }
           </li>
           <li>
-            <p onClick={this.clickSpotify}>Spotify</p>
-            {this.state.showSpotify ? 
+            <span className="fa-li" >
+              {this.state.showSpotify ?
+                <Triangle className="fas fa-caret-down"></Triangle>
+                :
+                <Triangle className="fas fa-caret-right"></Triangle>
+              }
+            </span>
+            <SidebarTitle onClick={this.clickSpotify}>Spotify</SidebarTitle>
+            {this.state.showSpotify ?
               <ul>
                 {spotifyList}
               </ul>
@@ -55,7 +97,7 @@ class Lists extends Component {
               null
             }
           </li>
-        </ul>
+        </List>
       </Container>
     )
   }
