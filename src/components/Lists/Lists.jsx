@@ -87,44 +87,47 @@ class Lists extends Component {
     return (
 
       <Wrapper>
-        <Directory>
-          <StyledList className="fa-ul">
-            <li>
-              <span className="fa-li" >
+        <Section>
+
+          <Directory>
+            <StyledList className="fa-ul">
+              <li>
+                <span className="fa-li" >
+                  {this.state.showMovies ?
+                    <Triangle className="fas fa-caret-down"></Triangle>
+                    :
+                    <Triangle className="fas fa-caret-right"></Triangle>
+                  }
+                </span>
+                <SidebarTitle onClick={this.clickMovies}>Movies</SidebarTitle>
                 {this.state.showMovies ?
-                  <Triangle className="fas fa-caret-down"></Triangle>
+                  <ul>
+                    {movieList}
+                  </ul>
                   :
-                  <Triangle className="fas fa-caret-right"></Triangle>
+                  null
                 }
-              </span>
-              <SidebarTitle onClick={this.clickMovies}>Movies</SidebarTitle>
-              {this.state.showMovies ?
-                <ul>
-                  {movieList}
-                </ul>
-                :
-                null
-              }
-            </li>
-            <li>
-              <span className="fa-li" >
+              </li>
+              <li>
+                <span className="fa-li" >
+                  {this.state.showSpotify ?
+                    <Triangle className="fas fa-caret-down"></Triangle>
+                    :
+                    <Triangle className="fas fa-caret-right"></Triangle>
+                  }
+                </span>
+                <SidebarTitle onClick={this.clickSpotify}>Spotify</SidebarTitle>
                 {this.state.showSpotify ?
-                  <Triangle className="fas fa-caret-down"></Triangle>
+                  <ul>
+                    {spotifyList}
+                  </ul>
                   :
-                  <Triangle className="fas fa-caret-right"></Triangle>
+                  null
                 }
-              </span>
-              <SidebarTitle onClick={this.clickSpotify}>Spotify</SidebarTitle>
-              {this.state.showSpotify ?
-                <ul>
-                  {spotifyList}
-                </ul>
-                :
-                null
-              }
-            </li>
-          </StyledList>
-        </Directory>
+              </li>
+            </StyledList>
+          </Directory>
+        </Section>
         <Section>
           {listType === 'movie' ?
             <MovieList list={movies} />
