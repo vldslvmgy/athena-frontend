@@ -1,9 +1,7 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
 import { withRouter } from 'react-router-dom';
-import List from '@material-ui/core/List';
-import ListItem from '@material-ui/core/ListItem';
-import ListItemText from '@material-ui/core/ListItemText';
+import MovieList from '../MovieList';
 
 
 //mock data
@@ -42,17 +40,25 @@ const Triangle = styled.i`
   padding-bottom: 10px;
 `;
 
-const Wrapper = styled.div``;
-
-
 const Year = styled.span`
   opacity: 0.6;
 `;
+
+const Wrapper = styled.div`
+  display: flex;
+`;
+
+const Section = styled.div`
+  width: 100%;
+`;
+
+
 
 class Lists extends Component {
   constructor() {
     super();
     this.state = {
+      listType: 'movie',
       movies: ["List1", "List2", "List3"],
       spotify: ["List1"],
       showMovies: false,
@@ -73,8 +79,11 @@ class Lists extends Component {
   }
 
   render() {
+    const { listType } = this.state;
+
     const movieList = this.state.movies.map((movie) => <ListEntry key={movie}>{movie}</ListEntry>);
     const spotifyList = this.state.spotify.map((spotify) => <ListEntry key={spotify}>{spotify}</ListEntry>);
+
     return (
 
       <Wrapper>
@@ -116,25 +125,13 @@ class Lists extends Component {
             </li>
           </StyledList>
         </Directory>
-        <List>
-          {
-            movies.map((movie) => {
-              const primary = (
-                <React.Fragment>
-                  <span>{movie.title}</span>
-                  <Year>  ({movie.year})</Year>
-                </React.Fragment>
-              );
-              return (
-                <ListItem button>
-                  <ListItemText
-                    primary={primary}
-                  />
-                </ListItem>
-              )
-            })
+        <Section>
+          {listType === 'movie' ?
+            <MovieList list={movies} />
+            : null
           }
-        </List>
+        </Section>
+        <Section></Section>
       </Wrapper>
     )
   }
