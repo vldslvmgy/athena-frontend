@@ -1,19 +1,27 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
 import PropTypes from 'prop-types';
+import Button from '@material-ui/core/Button';
 import Collapse from '@material-ui/core/Collapse';
+import DeleteIcon from '@material-ui/icons/Delete';
 import ListItem from '@material-ui/core/ListItem';
 import ListItemText from '@material-ui/core/ListItemText';
 
-
-const Year = styled.span`
-  opacity: 0.6;
+const DetailsFooter = styled.div`
+  display: flex;
+  flex-direction: row-reverse;
+  padding-top: 6px;
 `;
 
 const Details = styled.div`
   display: grid;
   font-size: 14px;
+  grid-row-gap: 6px;
   padding: 11px 16px;
+`;
+
+const Year = styled.span`
+  opacity: 0.6;
 `;
 
 class MovieListItem extends Component {
@@ -65,6 +73,11 @@ class MovieListItem extends Component {
                 )
               })}
             </span>
+            <DetailsFooter>
+              <Button variant="contained" color="secondary" size="small">
+                Delete <DeleteIcon />
+              </Button>
+            </DetailsFooter>
           </Details>
         </Collapse>
       </React.Fragment>
