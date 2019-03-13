@@ -40,10 +40,6 @@ const Triangle = styled.i`
   padding-bottom: 10px;
 `;
 
-const Year = styled.span`
-  opacity: 0.6;
-`;
-
 const Wrapper = styled.div`
   display: flex;
 `;
