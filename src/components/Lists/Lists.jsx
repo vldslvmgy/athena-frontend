@@ -55,16 +55,15 @@ class Lists extends Component {
     super();
     this.state = {
       listType: 'movie',
-      movies: ["List1", "List2", "List3"],
-      spotify: ["List1"],
-      showMovies: false,
-      showSpotify: false
+      showingList: '',
+      lists: ["List1", "List2", "List3"]
     };
+    this.selectList.bind(this);
   }
 
-  clickMovies = () => {
+  selectList(list) {
     this.setState({
-      showMovies: !this.state.showMovies
+      showingList: list
     })
   }
 
@@ -76,10 +75,18 @@ class Lists extends Component {
 
   render() {
     const { listType } = this.state;
-
-    const movieList = this.state.movies.map((movie) => <ListEntry key={movie}>{movie}</ListEntry>);
-    const spotifyList = this.state.spotify.map((spotify) => <ListEntry key={spotify}>{spotify}</ListEntry>);
-
+    const lists = this.state.lists.map((list) =>
+      <li>
+        <span className="fa-li" >
+          {this.state.showingList === list ?
+            <Triangle className="fas fa-check-circle"></Triangle>
+            :
+            <Triangle className="far fa-circle"></Triangle>
+          }
+        </span>
+        <SidebarTitle onClick={() => this.selectList(list)}>{list}</SidebarTitle>
+      </li>
+    )
     return (
 
       <Wrapper>
@@ -87,40 +94,7 @@ class Lists extends Component {
 
           <Directory>
             <StyledList className="fa-ul">
-              <li>
-                <span className="fa-li" >
-                  {this.state.showMovies ?
-                    <Triangle className="fas fa-caret-down"></Triangle>
-                    :
-                    <Triangle className="fas fa-caret-right"></Triangle>
-                  }
-                </span>
-                <SidebarTitle onClick={this.clickMovies}>Movies</SidebarTitle>
-                {this.state.showMovies ?
-                  <ul>
-                    {movieList}
-                  </ul>
-                  :
-                  null
-                }
-              </li>
-              <li>
-                <span className="fa-li" >
-                  {this.state.showSpotify ?
-                    <Triangle className="fas fa-caret-down"></Triangle>
-                    :
-                    <Triangle className="fas fa-caret-right"></Triangle>
-                  }
-                </span>
-                <SidebarTitle onClick={this.clickSpotify}>Spotify</SidebarTitle>
-                {this.state.showSpotify ?
-                  <ul>
-                    {spotifyList}
-                  </ul>
-                  :
-                  null
-                }
-              </li>
+              {lists}
             </StyledList>
           </Directory>
         </Section>
