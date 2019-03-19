@@ -1,10 +1,11 @@
 import React, { Component } from 'react';
 import Profile from './components/Profile/Profile';
-import { Route } from 'react-router';
+import { Redirect, Route } from 'react-router';
 import { BrowserRouter as Router } from 'react-router-dom';
-import Navbar from './components/Navbar/Navbar'
-import Lists from './components/Lists/Lists'
 import Footer from './components/Footer/Footer';
+import Lists from './components/Lists/Lists'
+import Login from './components/Login/Login';
+import Navbar from './components/Navbar/Navbar'
 import styled from 'styled-components';
 
 const Content = styled.div`
@@ -17,6 +18,8 @@ class App extends Component {
         <Navbar />
         <Router>
           <Content>
+            <Route exact path="/" render={() => (<Redirect to="/login" />)} />
+            <Route path="/login" component={Login} />
             <Route path="/profile" component={Profile} />
             <Route path='/lists' component={Lists} />
           </Content>

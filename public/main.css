@@ -1,4 +1,4 @@
-html, body {
+html, body, #root {
   height: 100%;
   position: relative;
 }
@@ -6,5 +6,4 @@ html, body {
 #root {
   display: flex;
   flex-direction: column;
-  position: relative;
 }
