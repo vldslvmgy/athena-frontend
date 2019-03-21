@@ -4,6 +4,8 @@ html, body, #root {
 }
 
 #root {
+  position: relative;
+  min-height: 100%;
   display: flex;
   flex-direction: column;
 }
