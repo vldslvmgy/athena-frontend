@@ -9,7 +9,6 @@ import Navbar from './components/Navbar/Navbar'
 import styled from 'styled-components';
 
 const Content = styled.div`
-
 `;
 
 class App extends Component {
