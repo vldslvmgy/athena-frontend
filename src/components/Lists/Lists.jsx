@@ -5,7 +5,7 @@ import MovieList from '../MovieList';
 
 
 //mock data
-import movies from '../../mock-data/movies';
+import lists from '../../mock-data/lists';
 
 const Directory = styled.div`
   font-size: 16px;
@@ -54,37 +54,33 @@ class Lists extends Component {
   constructor() {
     super();
     this.state = {
-      listType: 'movie',
-      showingList: '',
-      lists: ["List1", "List2", "List3"]
+      selectedList: 0,
+      lists: lists
     };
     this.selectList.bind(this);
   }
 
-  selectList(list) {
-    this.setState({
-      showingList: list
-    })
-  }
+  selectList(listName) {
+    console.log(listName)
+    const { lists } = this.state;
+    const index = lists.findIndex(list => list.listName === listName);
 
-  clickSpotify = () => {
     this.setState({
-      showSpotify: !this.state.showSpotify
+      selectedList: index
     })
   }
 
   render() {
-    const { listType } = this.state;
     const lists = this.state.lists.map((list) =>
       <li>
         <span className="fa-li" >
-          {this.state.showingList === list ?
+          {this.state.lists[this.state.selectedList].listName === list.listName ?
             <Triangle className="fas fa-check-circle"></Triangle>
             :
             <Triangle className="far fa-circle"></Triangle>
           }
         </span>
-        <SidebarTitle onClick={() => this.selectList(list)}>{list}</SidebarTitle>
+        <SidebarTitle onClick={() => this.selectList(list.listName)}>{list.listName}</SidebarTitle>
       </li>
     )
     return (
@@ -99,10 +95,7 @@ class Lists extends Component {
           </Directory>
         </Section>
         <Section>
-          {listType === 'movie' ?
-            <MovieList list={movies} />
-            : null
-          }
+            <MovieList list={this.state.lists[this.state.selectedList].listItems} />
         </Section>
         <Section></Section>
       </Wrapper>
