@@ -35,7 +35,7 @@ const StyledList = styled.ul`
   margin-right: 100px;
 `;
 
-const Triangle = styled.i`
+const Circle = styled.i`
   padding-top: 10px;
   padding-bottom: 10px;
 `;
@@ -59,7 +59,6 @@ class Lists extends Component {
   }
 
   selectList(listName) {
-    console.log(listName)
     const { lists } = this.state;
     const index = lists.findIndex(list => list.listName === listName);
 
@@ -70,12 +69,12 @@ class Lists extends Component {
 
   render() {
     const lists = this.state.lists.map((list) =>
-      <li>
+      <li key = {list.listName}>
         <span className="fa-li" >
           {this.state.lists[this.state.selectedList].listName === list.listName ?
-            <Triangle className="fas fa-check-circle"></Triangle>
+            <Circle className="fas fa-check-circle"></Circle>
             :
-            <Triangle className="far fa-circle"></Triangle>
+            <Circle className="far fa-circle"></Circle>
           }
         </span>
         <SidebarTitle onClick={() => this.selectList(list.listName)}>{list.listName}</SidebarTitle>
