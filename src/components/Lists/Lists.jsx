@@ -8,6 +8,7 @@ import MovieList from '../MovieList';
 import lists from '../../mock-data/lists';
 
 const Directory = styled.div`
+position:relative;
   font-size: 16px;
   -webkit-user-select: none; /* webkit (safari, chrome) browsers */
   -moz-user-select: none; /* mozilla browsers */
@@ -18,7 +19,19 @@ const Directory = styled.div`
 const ListEntry = styled.li`
   padding-top: 5px;
 `;
-
+const ButtonWrapper = styled.div`
+margin-top:20px;
+height:20%;
+width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+`;
+const AllButton = styled.button`
+text-align:center;
+margin: auto;
+position:absolute;
+`;
 const SidebarTitle = styled.p`
   cursor: pointer;
   margin: 0;
@@ -31,8 +44,11 @@ const SidebarTitle = styled.p`
 `;
 
 const StyledList = styled.ul`
+position:absolute;
+width:90%;
   list-style-type: none;
   margin-right: 100px;
+  margin-left:10%;
 `;
 
 const Circle = styled.i`
@@ -88,13 +104,16 @@ class Lists extends Component {
         <Section>
 
           <Directory>
+            <ButtonWrapper>
+              <AllButton>SHOW ALL</AllButton>
+            </ButtonWrapper>
             <StyledList className="fa-ul">
               {lists}
             </StyledList>
           </Directory>
         </Section>
         <Section>
-            <MovieList list={this.state.lists[this.state.selectedList].listItems} />
+            <MovieList list={this.state.lists[this.state.selectedList]} />
         </Section>
         <Section></Section>
       </Wrapper>
