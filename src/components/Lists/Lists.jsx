@@ -69,7 +69,12 @@ class Lists extends Component {
     super();
     this.state = {
       selectedList: 0,
-      lists: lists
+      lists: lists,
+      showAll: false,
+      allList: {
+        "listName": "All List",
+        "listItems": []
+      }
     };
     this.selectList.bind(this);
   }
@@ -79,15 +84,29 @@ class Lists extends Component {
     const index = lists.findIndex(list => list.listName === listName);
 
     this.setState({
-      selectedList: index
+      selectedList: index,
+      showAll: false
     })
   }
 
+  showAll = () => {
+    let { allList } = this.state
+    this.state.lists.forEach(list => {
+      list.listItems.forEach(entry => {
+        allList.listItems.push(entry);
+      })
+    })
+    this.setState({
+      showAll: true,
+      allList: allList
+    })
+  }
   render() {
+    const { allList, showAll } = this.state;
     const lists = this.state.lists.map((list) =>
-      <li key = {list.listName}>
+      <li key={list.listName}>
         <span className="fa-li" >
-          {this.state.lists[this.state.selectedList].listName === list.listName ?
+          {this.state.lists[this.state.selectedList].listName === list.listName && !showAll ?
             <Circle className="fas fa-check-circle"></Circle>
             :
             <Circle className="far fa-circle"></Circle>
@@ -103,7 +122,7 @@ class Lists extends Component {
 
           <Directory>
             <ButtonWrapper>
-              <AllButton>SHOW ALL</AllButton>
+              <AllButton onClick={this.showAll}>SHOW ALL</AllButton>
             </ButtonWrapper>
             <StyledList className="fa-ul">
               {lists}
@@ -111,7 +130,7 @@ class Lists extends Component {
           </Directory>
         </Section>
         <Section>
-            <MovieList list={this.state.lists[this.state.selectedList]} />
+          <MovieList list={showAll ? allList : this.state.lists[this.state.selectedList]} />
         </Section>
         <Section />
       </Wrapper>
