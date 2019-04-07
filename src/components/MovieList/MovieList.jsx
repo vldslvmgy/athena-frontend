@@ -36,9 +36,11 @@ const styles = theme => ({
 class MovieList extends Component {
   constructor(props) {
     super();
+    const { list } = props
     this.state = {
-      filteredList: props.list.listItems,
-      isFiltered: false
+      listName: list.listName,
+      filteredList: list.listItems,
+      searchTerm:""
     };
   }
 
@@ -46,29 +48,30 @@ class MovieList extends Component {
     const { list } = this.props;
     if (list.listName !== prevProps.list.listName) {
       this.setState({
-        filteredList: list.listItems
+        filteredList: list.listItems,
+        searchTerm:""
       })
     }
   }
   filter = event => {
     const { list } = this.props;
     const filteredList = list.listItems.filter(function (listItem) {
-      return listItem.title.startsWith(event.target.value)
+      return listItem.title.toLowerCase().startsWith(event.target.value.toLowerCase())
     })
     this.setState({
-      isFiltered: true,
-      filteredList: filteredList
+      listName: list.listName,
+      filteredList: filteredList,
+      searchTerm:event.target.value
     })
   }
 
   render() {
     const { classes } = this.props;
-    const { list } = this.props;
-    const { filteredList } = this.state;
+    const { listName, filteredList, searchTerm } = this.state;
     return (
       <React.Fragment>
         <Header>
-          <h1>{list.listName}</h1>
+          <h1>{listName}</h1>
           <Fab color="primary" size="small">
             <AddIcon />
           </Fab>
@@ -81,6 +84,7 @@ class MovieList extends Component {
           type="filter"
           autoComplete="current-filter"
           margin="normal"
+          value={searchTerm}
           variant="outlined"
           onChange={this.filter} />
         <StyledList>
