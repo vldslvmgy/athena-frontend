@@ -9,6 +9,7 @@ import Navbar from './components/Navbar/Navbar'
 import styled from 'styled-components';
 
 const Content = styled.div`
+  margin-bottom:40px;
 `;
 
 class App extends Component {

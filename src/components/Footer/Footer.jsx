@@ -4,7 +4,7 @@ import { withRouter } from 'react-router-dom';
 
 const Wrapper = styled.div`
   position: absolute;
-  bottom: -33px;
+  bottom: 0;
   background-color: whitesmoke;
   font-size: 12px;
   width: 100%;
