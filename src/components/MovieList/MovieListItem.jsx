@@ -56,7 +56,7 @@ class MovieListItem extends Component {
 
     return (
       <React.Fragment>
-        <ListItem button onClick={this.handleToggleCollapse}>
+        <ListItem divider button onClick={this.handleToggleCollapse}>
           <ListItemText
             primary={primary}
           />
