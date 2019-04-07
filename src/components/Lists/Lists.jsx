@@ -2,7 +2,8 @@ import React, { Component } from 'react';
 import styled from 'styled-components';
 import { withRouter } from 'react-router-dom';
 import MovieList from '../MovieList';
-
+import { withStyles } from '@material-ui/core/styles';
+import Button from '@material-ui/core/Button';
 
 //mock data
 import lists from '../../mock-data/lists';
@@ -16,9 +17,6 @@ position:relative;
   -ms-user-select: none; /* IE10+ */
 `;
 
-const ListEntry = styled.li`
-  padding-top: 5px;
-`;
 const ButtonWrapper = styled.div`
 margin-top:20px;
 height:20%;
@@ -27,11 +25,7 @@ width: 100%;
   align-items: center;
   justify-content: center;
 `;
-const AllButton = styled.button`
-text-align:center;
-margin: auto;
-position:absolute;
-`;
+
 const SidebarTitle = styled.p`
   cursor: pointer;
   margin: 0;
@@ -63,6 +57,12 @@ const Wrapper = styled.div`
 const Section = styled.div`
   width: 100%;
 `;
+
+const styles = theme => ({
+  button: {
+    margin: theme.spacing.unit,
+  }
+});
 
 class Lists extends Component {
   constructor() {
@@ -122,7 +122,7 @@ class Lists extends Component {
 
           <Directory>
             <ButtonWrapper>
-              <AllButton onClick={this.showAll}>SHOW ALL</AllButton>
+              <Button onClick={this.showAll} variant="contained" color="primary" >SHOW ALL</Button>
             </ButtonWrapper>
             <StyledList className="fa-ul">
               {lists}
@@ -138,4 +138,4 @@ class Lists extends Component {
   }
 }
 
-export default withRouter(Lists);
+export default withStyles(styles)(withRouter(Lists));
