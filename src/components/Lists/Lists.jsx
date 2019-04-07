@@ -91,11 +91,13 @@ class Lists extends Component {
 
   showAll = () => {
     let { allList } = this.state
-    this.state.lists.forEach(list => {
-      list.listItems.forEach(entry => {
-        allList.listItems.push(entry);
+    if(allList.listItems.length===0){
+      this.state.lists.forEach(list => {
+        list.listItems.forEach(entry => {
+          allList.listItems.push(entry);
+        })
       })
-    })
+    }
     this.setState({
       showAll: true,
       allList: allList
