@@ -6,7 +6,6 @@ import Fab from '@material-ui/core/Fab';
 import List from '@material-ui/core/List';
 import MovieListItem from './MovieListItem';
 import TextField from '@material-ui/core/TextField';
-import { withStyles } from '@material-ui/core/styles';
 
 const StyledList = styled(List)`
 `;
@@ -16,22 +15,6 @@ const Header = styled.div`
   display: flex;
   justify-content: space-between;
 `;
-const styles = theme => ({
-  container: {
-    display: 'flex',
-    flexWrap: 'wrap',
-  },
-  textField: {
-    marginLeft: theme.spacing.unit,
-    marginRight: theme.spacing.unit,
-  },
-  dense: {
-    marginTop: 16,
-  },
-  menu: {
-    width: 200,
-  },
-});
 
 class MovieList extends Component {
   constructor(props) {
@@ -56,7 +39,12 @@ class MovieList extends Component {
   filter = event => {
     const { list } = this.props;
     const filteredList = list.listItems.filter(function (listItem) {
-      return listItem.title.toLowerCase().startsWith(event.target.value.toLowerCase())
+      // let words = listItem.title.toLowerCase().split(" ");
+      return listItem.title.toLowerCase().includes(event.target.value.toLowerCase());
+      // let searchWords = event.target.value.toLowerCase().split(" ")
+      // return words.some((word)=>{
+      //   return word.startsWith(event.target.value.toLowerCase())
+      // })
     })
     this.setState({
       listName: list.listName,
@@ -66,7 +54,6 @@ class MovieList extends Component {
   }
 
   render() {
-    const { classes } = this.props;
     const { listName, filteredList, searchTerm } = this.state;
     return (
       <React.Fragment>
@@ -80,7 +67,6 @@ class MovieList extends Component {
           fullWidth
           id="outlined-filter-input"
           label="Filter"
-          className={classes.textField}
           type="filter"
           autoComplete="current-filter"
           margin="normal"
@@ -102,8 +88,7 @@ class MovieList extends Component {
 }
 
 MovieList.propTypes = {
-  list: PropTypes.object,
-  classes: PropTypes.object.isRequired,
+  list: PropTypes.object
 };
 
-export default withStyles(styles)(MovieList);
+export default MovieList;
