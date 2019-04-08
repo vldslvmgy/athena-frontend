@@ -31,6 +31,7 @@ class MovieList extends Component {
     const { list } = this.props;
     if (list.listName !== prevProps.list.listName) {
       this.setState({
+        listName:list.listName,
         filteredList: list.listItems,
         searchTerm:""
       })
