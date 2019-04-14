@@ -20,7 +20,7 @@ import { withRouter } from 'react-router-dom'
 
 const styles = theme => ({
   root: {
-    marginBottom: '64px',
+    height: '64px',
     width: '100%',
   },
   grow: {
