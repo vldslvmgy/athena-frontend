@@ -1,4 +1,4 @@
-import React, { PureComponent } from 'react';
+import React from 'react';
 import { Redirect, Route } from 'react-router';
 import { BrowserRouter as Router } from 'react-router-dom';
 import styled from 'styled-components';
@@ -12,23 +12,21 @@ const Content = styled.div`
   margin-bottom:40px;
 `;
 
-class App extends PureComponent {
-  render() {
-    return (
-      <React.Fragment>
-        <Navbar />
-        <Router>
-          <Content>
-            <Route exact path="/" render={() => (<Redirect to="/login" />)} />
-            <Route path="/login" component={Login} />
-            <Route path="/profile" component={Profile} />
-            <Route path="/lists" component={Lists} />
-          </Content>
-        </Router>
-        <Footer />
-      </React.Fragment>
-    );
-  }
+function App() {
+  return (
+    <React.Fragment>
+      <Navbar />
+      <Router>
+        <Content>
+          <Route exact path="/" render={() => (<Redirect to="/login" />)} />
+          <Route path="/login" component={Login} />
+          <Route path="/profile" component={Profile} />
+          <Route path="/lists" component={Lists} />
+        </Content>
+      </Router>
+      <Footer />
+    </React.Fragment>
+  );
 }
 
 export default App;

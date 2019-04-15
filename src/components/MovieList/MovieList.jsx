@@ -40,7 +40,7 @@ class MovieList extends Component {
           }
         </StyledList>
       </React.Fragment>
-    )
+    );
   }
 }
 
