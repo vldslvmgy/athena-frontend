@@ -27,18 +27,16 @@ class MovieList extends Component {
     return (
       <React.Fragment>
         <Header>
-          <h1>Vlad's List</h1>
+          <h1>
+            Vlad's List
+          </h1>
           <Fab color="primary" size="medium">
             <AddIcon />
           </Fab>
         </Header>
         <StyledList>
           {
-            list.map((movie, index) => {
-              return (
-                <MovieListItem key={index} movie={movie} />
-              )
-            })
+            list.map((movie, index) => <MovieListItem key={index} movie={movie} />)
           }
         </StyledList>
       </React.Fragment>

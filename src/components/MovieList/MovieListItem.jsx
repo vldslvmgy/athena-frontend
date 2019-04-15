@@ -32,7 +32,7 @@ class MovieListItem extends Component {
     };
   }
 
-  handleToggleCollapse = () => {
+  handleToggleCollapse() {
     this.setState(prevState => ({ open: !prevState.open }));
   }
 
@@ -44,7 +44,11 @@ class MovieListItem extends Component {
     const primary = (
       <React.Fragment>
         <span>{movie.title}</span>
-        <Year>  ({movie.year})</Year>
+        <Year>
+          (
+          {movie.year}
+          )
+        </Year>
       </React.Fragment>
     );
 
@@ -59,29 +63,32 @@ class MovieListItem extends Component {
           <Details>
             <span>
               Genre:&nbsp;
-              {genres.map((genre, index) => {
-                return (
-                  <span key={index}>{genre}{index < genres.length - 1 ? ', ' : ''}</span>
-                )
-              })}
+              {genres.map((genre, index) => (
+                <span key={index}>
+                  {genre}
+                  {index < genres.length - 1 ? ', ' : ''}
+                </span>
+              ))}
             </span>
             <span>
               Cast:&nbsp;
-              {cast.map((actor, index) => {
-                return (
-                  <span key={index}>{actor}{index < cast.length - 1 ? ', ' : ''}</span>
-                )
-              })}
+              {cast.map((actor, index) => (
+                <span key={index}>
+                  {actor}
+                  {index < cast.length - 1 ? ', ' : ''}
+                </span>
+              ))}
             </span>
             <DetailsFooter>
               <Button variant="contained" color="secondary" size="small">
-                Delete <DeleteIcon />
+                Delete
+                <DeleteIcon />
               </Button>
             </DetailsFooter>
           </Details>
         </Collapse>
       </React.Fragment>
-    )
+    );
   }
 }
 

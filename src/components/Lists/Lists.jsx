@@ -62,23 +62,23 @@ class Lists extends Component {
     };
   }
 
-  clickMovies = () => {
+  clickMovies() {
     this.setState({
       showMovies: !this.state.showMovies
-    })
+    });
   }
 
-  clickSpotify = () => {
+  clickSpotify() {
     this.setState({
       showSpotify: !this.state.showSpotify
-    })
+    });
   }
 
   render() {
     const { listType } = this.state;
 
-    const movieList = this.state.movies.map((movie) => <ListEntry key={movie}>{movie}</ListEntry>);
-    const spotifyList = this.state.spotify.map((spotify) => <ListEntry key={spotify}>{spotify}</ListEntry>);
+    const movieList = this.state.movies.map(movie => <ListEntry key={movie}>{movie}</ListEntry>);
+    const spotifyList = this.state.spotify.map(spotify => <ListEntry key={spotify}>{spotify}</ListEntry>);
 
     return (
 

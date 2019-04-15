@@ -4,9 +4,14 @@
   "private": true,
   "dependencies": {
     "@material-ui/icons": "^3.0.2",
+    "apollo-boost": "^0.3.1",
+    "eslint-config-airbnb": "^17.1.0",
+    "graphql": "^14.2.1",
+    "graphql-tag": "^2.10.1",
     "mdbreact": "^4.10.0",
     "prop-types": "^15.7.2",
     "react": "^16.8.1",
+    "react-apollo": "^2.5.4",
     "react-dom": "^16.8.1",
     "react-router": "^4.3.1",
     "react-router-dom": "^4.3.1",
@@ -22,7 +27,34 @@
     "eject": "react-scripts eject"
   },
   "eslintConfig": {
-    "extends": "react-app"
+    "extends": "airbnb",
+    "rules": {
+      "import/prefer-default-export": "off",
+      "react/destructuring-assignment": "off",
+      "react/prop-types": "off",
+      "comma-dangle": "off",
+      "react/forbid-prop-types": "warn",
+      "react/require-default-props": "warn",
+      "import/no-extraneous-dependencies": "warn",
+      "react/no-access-state-in-setstate": "warn",
+      "react/no-array-index-key": "warn",
+      "react/jsx-filename-extension": [
+        1,
+        {
+          "extensions": [
+            ".js",
+            "jsx"
+          ]
+        }
+      ],
+      "max-len": [
+        "warn",
+        100
+      ]
+    },
+    "globals": {
+      "document": "writable"
+    }
   },
   "browserslist": [
     ">0.2%",

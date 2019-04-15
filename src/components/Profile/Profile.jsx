@@ -11,7 +11,7 @@ class Profile extends Component {
       <div>
         <p>Hello World!</p>
       </div>
-    )
+    );
   }
 }
 
