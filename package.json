@@ -25,10 +25,11 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "lint": "eslint src/"
+    "lint": "eslint src/**/*"
   },
   "eslintConfig": {
     "extends": "airbnb",
+    "parser": "babel-eslint",
     "rules": {
       "import/prefer-default-export": "off",
       "react/destructuring-assignment": "off",
@@ -42,6 +43,7 @@
       "import/named": "warn",
       "import/no-named-as-default": "warn",
       "import/no-named-as-default-member": "warn",
+      "react/no-unescaped-entities": "off",
       "react/jsx-filename-extension": [
         1,
         {
@@ -55,6 +57,9 @@
         "warn",
         100
       ]
+    },
+    "parserOptions": {
+      "ecmaVersion": 2018
     },
     "globals": {
       "document": "writable"
