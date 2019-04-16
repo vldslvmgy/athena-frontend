@@ -24,7 +24,8 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "lint": "eslint src/"
   },
   "eslintConfig": {
     "extends": "airbnb",
@@ -38,6 +39,9 @@
       "import/no-extraneous-dependencies": "warn",
       "react/no-access-state-in-setstate": "warn",
       "react/no-array-index-key": "warn",
+      "import/named": "warn",
+      "import/no-named-as-default": "warn",
+      "import/no-named-as-default-member": "warn",
       "react/jsx-filename-extension": [
         1,
         {

@@ -59,13 +59,13 @@ class Lists extends Component {
     };
   }
 
-  clickMovies() {
+  clickMovies = () =>  {
     this.setState({
       showMovies: !this.state.showMovies
     });
   }
 
-  clickSpotify() {
+  clickSpotify = () => {
     this.setState({
       showSpotify: !this.state.showSpotify
     });
