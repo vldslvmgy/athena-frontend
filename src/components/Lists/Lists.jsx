@@ -59,7 +59,7 @@ class Lists extends Component {
     };
   }
 
-  clickMovies = () =>  {
+  clickMovies = () => {
     this.setState({
       showMovies: !this.state.showMovies
     });
