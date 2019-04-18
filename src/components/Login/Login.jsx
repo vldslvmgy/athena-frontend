@@ -33,9 +33,9 @@ class Login extends Component {
     this.state = {};
   }
 
-  handleSubmit(event) {
-    const data = console.log(event.target);
-  }
+  // handleSubmit(event) {
+  //   const data = console.log(event.target);
+  // }
 
   render() {
     return (
