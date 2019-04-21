@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
 
 class Profile extends Component {
   constructor() {
@@ -9,10 +10,12 @@ class Profile extends Component {
   render() {
     return (
       <div>
-        <p>Hello World!</p>
+        <p>{this.props.isLoggedIn ? 'Logged In!' : 'not Logged in :('}</p>
       </div>
     );
   }
 }
 
-export default Profile;
+const mapStateToProps = state => ({ isLoggedIn: state.login.isLoggedIn });
+
+export default connect(mapStateToProps)(Profile);

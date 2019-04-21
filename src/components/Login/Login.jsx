@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
+import { connect } from 'react-redux';
+import { Redirect } from 'react-router-dom';
 import Avatar from '@material-ui/core/Avatar';
 import Button from '@material-ui/core/Button';
 import Checkbox from '@material-ui/core/Checkbox';
@@ -10,6 +12,7 @@ import Input from '@material-ui/core/Input';
 import InputLabel from '@material-ui/core/InputLabel';
 import Paper from '@material-ui/core/Paper';
 import Typography from '@material-ui/core/Typography';
+import CircularProgress from '@material-ui/core/CircularProgress';
 import gql from 'graphql-tag';
 import { Mutation } from 'react-apollo';
 
@@ -31,6 +34,10 @@ const Wrapper = styled.div`
   justify-content: center;
 `;
 
+const Loader = styled.div`
+  margin-top: 10px;
+`;
+
 const StyledPaper = styled(Paper)`
   align-items: center;
   display: flex;
@@ -46,6 +53,7 @@ class Login extends Component {
     this.state = {
       email: '',
       password: '',
+      redirect: false,
       error: false
     };
   }
@@ -54,28 +62,40 @@ class Login extends Component {
     event.preventDefault();
   }
 
+  renderRedirect = () => {
+    if (this.state.redirect) {
+      return <Redirect to="/profile" />;
+    }
+  }
+
+  handleLogin = () => {
+    this.props.login(true);
+    this.setState({ redirect: true });
+  }
+
   handleEmailChange = (event) => {
     this.setState({ email: event.target.value });
+  };
+
+  handlePasswordChange = (event) => {
+    this.setState({ password: event.target.value });
   };
 
   handleError = () => {
     this.setState({ error: true });
   }
 
-  handlePasswordChange = (event) => {
-    this.setState({ password: event.target.value });
-  };
 
   render() {
-    console.log(this.state.error);
     return (
       <Wrapper>
+        {this.renderRedirect()}
         <Mutation
           mutation={TEST_QUERY}
-          onCompleted={(data) => { console.log(data); }}
+          onCompleted={this.handleLogin}
           onError={this.handleError}
         >
-          {(login, { loading, error }) => (
+          {(callLogin, { loading }) => (
             <StyledPaper>
               <Avatar>
                 <LockOutlinedIcon />
@@ -86,7 +106,7 @@ class Login extends Component {
               <form
                 onSubmit={(e) => {
                   e.preventDefault();
-                  login({ variables: { email: this.state.email, password: this.state.password } });
+                  callLogin({ variables: { email: this.state.email, password: this.state.password } });
                 }}
               >
                 <FormControl margin="normal" required fullWidth>
@@ -124,6 +144,13 @@ class Login extends Component {
               Sign in
                 </Button>
               </form>
+              {loading && (
+                <Loader>
+                  <CircularProgress
+                    className="loading"
+                  />
+                </Loader>
+              )}
             </StyledPaper>
           )}
         </Mutation>
@@ -132,4 +159,12 @@ class Login extends Component {
   }
 }
 
-export default Login;
+const mapStateToProps = state => ({ isLoggedIn: state.login.isLoggedIn });
+
+const mapDispatchToProps = dispatch => (
+  {
+    login: value => dispatch({ type: 'LOGIN', payload: { isLoggedIn: value } })
+  }
+);
+
+export default connect(mapStateToProps, mapDispatchToProps)(Login);

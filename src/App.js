@@ -1,9 +1,11 @@
 import React from 'react';
 import { Redirect, Route } from 'react-router';
+import { Provider } from 'react-redux';
 import { BrowserRouter as Router } from 'react-router-dom';
 import { ApolloProvider } from 'react-apollo';
 import styled from 'styled-components';
 import Client from './apolloClient';
+import store from './redux/store';
 import Profile from './components/Profile/Profile';
 import Footer from './components/Footer/Footer';
 import Lists from './components/Lists/Lists';
@@ -19,15 +21,17 @@ function App() {
     <React.Fragment>
       <Navbar />
       <ApolloProvider client={Client}>
-        <Router>
-          <Content>
-            <Route exact path="/" render={() => (<Redirect to="/login" />)} />
-            <Route path="/login" component={Login} />
-            <Route path="/profile" component={Profile} />
-            <Route path="/lists" component={Lists} />
-          </Content>
-        </Router>
-        <Footer />
+        <Provider store={store}>
+          <Router>
+            <Content>
+              <Route exact path="/" render={() => (<Redirect to="/login" />)} />
+              <Route path="/login" component={Login} />
+              <Route path="/profile" component={Profile} />
+              <Route path="/lists" component={Lists} />
+            </Content>
+          </Router>
+          <Footer />
+        </Provider>
       </ApolloProvider>
     </React.Fragment>
   );
