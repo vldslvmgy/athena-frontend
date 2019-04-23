@@ -10,12 +10,12 @@ class Profile extends Component {
   render() {
     return (
       <div>
-        <p>{this.props.isLoggedIn ? 'Logged In!' : 'not Logged in :('}</p>
+        <p>{this.props.user ? this.props.user.email : 'not Logged in :('}</p>
       </div>
     );
   }
 }
 
-const mapStateToProps = state => ({ isLoggedIn: state.login.isLoggedIn });
+const mapStateToProps = state => ({ user: state.login.user });
 
 export default connect(mapStateToProps)(Profile);

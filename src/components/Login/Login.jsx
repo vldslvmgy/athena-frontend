@@ -16,7 +16,7 @@ import CircularProgress from '@material-ui/core/CircularProgress';
 import gql from 'graphql-tag';
 import { Mutation } from 'react-apollo';
 
-const TEST_QUERY = gql`
+const LOGIN_CALL = gql`
   mutation login($email: String!, $password: String!) {
     login(
       email: $email,
@@ -68,8 +68,9 @@ class Login extends Component {
     }
   }
 
-  handleLogin = () => {
-    this.props.login(true);
+  handleLogin = (credentials) => {
+    const { id, email } = credentials.login;
+    this.props.login(id, email);
     this.setState({ redirect: true });
   }
 
@@ -91,7 +92,7 @@ class Login extends Component {
       <Wrapper>
         {this.renderRedirect()}
         <Mutation
-          mutation={TEST_QUERY}
+          mutation={LOGIN_CALL}
           onCompleted={this.handleLogin}
           onError={this.handleError}
         >
@@ -159,11 +160,11 @@ class Login extends Component {
   }
 }
 
-const mapStateToProps = state => ({ isLoggedIn: state.login.isLoggedIn });
+const mapStateToProps = state => ({ user: state.login.user });
 
 const mapDispatchToProps = dispatch => (
   {
-    login: value => dispatch({ type: 'LOGIN', payload: { isLoggedIn: value } })
+    login: (userId, email) => dispatch({ type: 'LOGIN', payload: { user: { userId, email } } })
   }
 );
 

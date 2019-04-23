@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "analyze": "source-map-explorer build/static/js/main.*",
-    "start": "PORT=3001 react-scripts start",
+    "start": "PORT=4000 react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
@@ -16,6 +16,9 @@
   "dependencies": {
     "@material-ui/icons": "^3.0.2",
     "apollo-boost": "^0.3.1",
+    "apollo-cache-inmemory": "^1.5.1",
+    "apollo-client": "^2.5.1",
+    "apollo-link-http": "^1.5.14",
     "eslint-config-airbnb": "^17.1.0",
     "graphql": "^14.2.1",
     "graphql-tag": "^2.10.1",
