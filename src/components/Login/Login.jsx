@@ -33,9 +33,9 @@ class Login extends Component {
     this.state = {};
   }
 
-  handleSubmit = (event => {
-    const data = console.log(event.target);
-  })
+  // handleSubmit(event) {
+  //   const data = console.log(event.target);
+  // }
 
   render() {
     return (
@@ -46,32 +46,37 @@ class Login extends Component {
           </Avatar>
           <Typography component="h1" variant="h5">
             Sign in
-        </Typography>
-        <form onSubmit={this.handleSubmit}>
-          <FormControl margin="normal" required fullWidth>
-            <InputLabel htmlFor="email">Email Address</InputLabel>
-            <Input id="email" name="email" autoComplete="email" autoFocus />
-          </FormControl>
-          <FormControl margin="normal" required fullWidth>
-            <InputLabel htmlFor="password">Password</InputLabel>
-            <Input name="password" type="password" id="password" autoComplete="current-password" />
-          </FormControl>
-          <FormControlLabel
-            control={<Checkbox value="remember" color="primary" />}
-            label="Remember me"
-          />
-          <Button
-            type="submit"
-            fullWidth
-            variant="contained"
-            color="primary"
-          >
+          </Typography>
+          <form onSubmit={this.handleSubmit}>
+            <FormControl margin="normal" required fullWidth>
+              <InputLabel htmlFor="email">Email Address</InputLabel>
+              <Input id="email" name="email" autoComplete="email" autoFocus />
+            </FormControl>
+            <FormControl margin="normal" required fullWidth>
+              <InputLabel htmlFor="password">Password</InputLabel>
+              <Input
+                name="password"
+                type="password"
+                id="password"
+                autoComplete="current-password"
+              />
+            </FormControl>
+            <FormControlLabel
+              control={<Checkbox value="remember" color="primary" />}
+              label="Remember me"
+            />
+            <Button
+              type="submit"
+              fullWidth
+              variant="contained"
+              color="primary"
+            >
             Sign in
-          </Button>
-        </form>
+            </Button>
+          </form>
         </StyledPaper>
       </Wrapper>
-    )
+    );
   }
 }
 

@@ -21,7 +21,7 @@ const Links = styled.div`
   display: flex;
   margin: 0 0 0 8px;
   text-align: center;
-`
+`;
 
 const Link = styled.button`
   background-color: transparent;
@@ -31,15 +31,13 @@ const Link = styled.button`
   :focus {
     outline: none;
   }
-  margin: ${props => {
+  margin: ${(props) => {
     if (props.firstLink) {
       return '0 8px 0 0';
-    }
-    else if (props.lastLink) {
+    } if (props.lastLink) {
       return '0 0 0 8px';
-    } else {
-      return '0 8px';
     }
+    return '0 8px';
   }};
   text-decoration: none;
 `;
@@ -51,12 +49,11 @@ class Footer extends Component {
   }
 
   render() {
-    const FooterLink = (props) => (
-      <Link 
+    const FooterLink = props => (
+      <Link
         {...props}
         firstLink
-        onClick={() =>
-          this.props.history.push('/' + props.link)
+        onClick={() => this.props.history.push(`/${props.link}`)
         }
       >
         {props.name}
@@ -65,14 +62,17 @@ class Footer extends Component {
     return (
       <Wrapper>
         <Container>
-          <span>Copyright © 2019 Ali Arshad, Motaz Balghonaim, Jordan Benning, Vladislav Magay, Jackson Pontifex</span>
+          <span>
+            Copyright © 2019 Ali Arshad, Motaz Balghonaim, Jordan Benning,
+            Vladislav Magay, Jackson Pontifex
+          </span>
           <Links>
-            <FooterLink firstLink link='about' name='About us'/>
-            <FooterLink lastLink link='contact' name='Contact'/>
+            <FooterLink firstLink link="about" name="About us" />
+            <FooterLink lastLink link="contact" name="Contact" />
           </Links>
         </Container>
       </Wrapper>
-    )
+    );
   }
 }
 
