@@ -164,7 +164,7 @@ const mapStateToProps = state => ({ user: state.login.user });
 
 const mapDispatchToProps = dispatch => (
   {
-    login: (userId, email) => dispatch({ type: 'LOGIN', payload: { user: { userId, email } } })
+    login: (userId, email) => dispatch({ type: 'LOGIN', payload: { userId, email } })
   }
 );
 

@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import { Redirect, Route } from 'react-router';
 import { Provider } from 'react-redux';
-import { BrowserRouter as Router } from 'react-router-dom';
 import { ApolloProvider, Query } from 'react-apollo';
 import gql from 'graphql-tag';
 import styled from 'styled-components';
@@ -54,14 +53,12 @@ class App extends Component {
           </Query>
           <Provider store={store}>
             <Navbar />
-            <Router>
-              <Content>
-                <Route exact path="/" render={() => (<Redirect to="/login" />)} />
-                <Route path="/login" render={() => (<Login />)} />
-                <Route path="/profile" render={() => (<Profile />)} />
-                <Route path="/lists" component={Lists} />
-              </Content>
-            </Router>
+            <Content>
+              <Route exact path="/" render={() => (<Redirect to="/login" />)} />
+              <Route path="/login" render={() => (<Login />)} />
+              <Route path="/profile" render={() => (<Profile />)} />
+              <Route path="/lists" component={Lists} />
+            </Content>
             <Footer />
           </Provider>
         </ApolloProvider>
