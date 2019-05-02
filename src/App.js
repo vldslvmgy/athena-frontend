@@ -33,11 +33,11 @@ class App extends Component {
 
   handleLoggedIn = (credentials) => {
     const { id, email } = credentials.me;
-    store.dispatch({ type: 'LOGIN', payload: { id, email } });
+    store.dispatch({ type: 'LOGIN', payload: { userId: id, email } });
   }
 
   handleError = () => {
-    store.dispatch({ type: 'LOGIN', payload: { id: null, email: null } });
+    store.dispatch({ type: 'LOGIN', payload: { userId: null, email: null } });
   }
 
   render() {

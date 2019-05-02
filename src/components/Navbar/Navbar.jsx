@@ -10,6 +10,7 @@ import MenuIcon from '@material-ui/icons/Menu';
 import MailIcon from '@material-ui/icons/Mail';
 import NotificationsIcon from '@material-ui/icons/Notifications';
 import { withRouter } from 'react-router-dom';
+import { connect } from 'react-redux';
 import SearchBar from './SearchBar';
 import MobileMenu from './MobileMenu';
 import AccountMenu from './AccountMenu';
@@ -55,7 +56,7 @@ class Navbar extends React.Component {
   };
 
   accountDisplays = () => {
-    if (this.props.user != null && this.props.user.email != null) {
+    if (this.props.user != null && this.props.user.userId != null) {
       return (
         <AccountMenu />
       );
