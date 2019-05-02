@@ -13,6 +13,7 @@ import { withRouter } from 'react-router-dom';
 import SearchBar from './SearchBar';
 import MobileMenu from './MobileMenu';
 import AccountMenu from './AccountMenu';
+import LoginButton from './LoginButton';
 
 const styles = theme => ({
   root: {
@@ -49,6 +50,21 @@ const styles = theme => ({
 class Navbar extends React.Component {
   state = {};
 
+  handleLoginRedirect = () => {
+    this.props.history.push('/login');
+  };
+
+  accountDisplays = () => {
+    if (this.props.user != null && this.props.user.email != null) {
+      return (
+        <AccountMenu />
+      );
+    }
+    return (
+      <LoginButton handleLoginRedirect={this.handleLoginRedirect} />
+    );
+  }
+
   render() {
     const { classes } = this.props;
 
@@ -76,7 +92,7 @@ class Navbar extends React.Component {
                   <NotificationsIcon />
                 </Badge>
               </IconButton>
-              <AccountMenu />
+              {this.accountDisplays()}
             </div>
             <MobileMenu />
           </Toolbar>
@@ -90,4 +106,6 @@ Navbar.propTypes = {
   classes: PropTypes.object.isRequired,
 };
 
-export default withStyles(styles)(withRouter(Navbar));
+const mapStateToProps = state => ({ user: state.login.user });
+
+export default connect(mapStateToProps)(withStyles(styles)(withRouter(Navbar)));

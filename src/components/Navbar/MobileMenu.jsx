@@ -54,7 +54,7 @@ class MobileMenu extends React.Component {
           anchorOrigin={{ vertical: 'top', horizontal: 'right' }}
           transformOrigin={{ vertical: 'top', horizontal: 'right' }}
           open={isMobileMenuOpen}
-          onClose={this.handleMenuClose}
+          onClose={this.handleMobileMenuClose}
         >
           <MenuItem onClick={this.handleMobileMenuClose}>
             <IconButton color="inherit">
