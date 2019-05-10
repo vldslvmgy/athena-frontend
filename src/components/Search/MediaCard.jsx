@@ -1,14 +1,15 @@
 import React from 'react';
 import { withStyles } from '@material-ui/core/styles';
 import ListItem from '@material-ui/core/ListItem';
+import Typography from '@material-ui/core/Typography';
 
-const styles = theme => ({
+const styles = () => ({
   mediaCard: {
     'margin-top': '2px',
+    width: '66%'
   },
-  loginButton: {
-    margin: theme.spacing.unit,
-    'text-transform': 'none'
+  titleText: {
+    'font-family': 'Arial, Helvetica, sans-serif'
   }
 });
 
@@ -18,8 +19,12 @@ function MediaCard(props) {
 
   return (
     <ListItem className={classes.mediaCard}>
-      { media.name }
-      { media.type }
+      <Typography variant="h6" gutterBottom className={classes.titleText}>
+        { media.name }
+      </Typography>
+      <Typography variant="h6" gutterBottom>
+        { media.type }
+      </Typography>
     </ListItem>
   );
 }
