@@ -29,6 +29,7 @@ const Loader = styled.div`
 const styles = () => ({
   mediaResults: {
     'margin-left': '20%',
+    'margin-top': '5%'
   },
 });
 

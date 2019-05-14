@@ -1,7 +1,7 @@
 import React from 'react';
 import { withStyles } from '@material-ui/core/styles';
 import ListItem from '@material-ui/core/ListItem';
-import Typography from '@material-ui/core/Typography';
+import ListItemText from '@material-ui/core/ListItemText';
 
 const styles = () => ({
   mediaCard: {
@@ -10,6 +10,10 @@ const styles = () => ({
   },
   titleText: {
     'font-family': 'Arial, Helvetica, sans-serif'
+  },
+  typeText: {
+    'font-family': 'Arial, Helvetica, sans-serif',
+    color: '#8ea4ff'
   }
 });
 
@@ -18,13 +22,25 @@ function MediaCard(props) {
   const { classes, media } = props;
 
   return (
-    <ListItem className={classes.mediaCard}>
-      <Typography variant="h6" gutterBottom className={classes.titleText}>
-        { media.name }
-      </Typography>
-      <Typography variant="h6" gutterBottom>
-        { media.type }
-      </Typography>
+    <ListItem>
+      <ListItemText
+        primaryTypographyProps={
+          {
+            variant: 'h6',
+            gutterBottom: false,
+            className: classes.titleText
+          }
+        }
+        primary={media.name}
+        secondaryTypographyProps={
+          {
+            variant: 'subtitle1',
+            gutterBottom: false,
+            className: classes.typeText
+          }
+        }
+        secondary={media.type}
+      />
     </ListItem>
   );
 }
