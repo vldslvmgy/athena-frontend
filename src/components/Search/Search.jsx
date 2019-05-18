@@ -17,6 +17,7 @@ const SEARCH_MEDIA = gql`
       type
       id
       name
+      releaseDate
     }
   }
 `;
@@ -29,7 +30,7 @@ const Loader = styled.div`
 const styles = () => ({
   mediaResults: {
     'margin-left': '20%',
-    'margin-top': '5%'
+    'margin-top': '90px'
   },
 });
 
