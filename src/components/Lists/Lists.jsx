@@ -1,11 +1,11 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
 import { withRouter } from 'react-router-dom';
-import MovieList from '../MovieList';
 import { withStyles } from '@material-ui/core/styles';
 import Button from '@material-ui/core/Button';
+import MovieList from '../MovieList';
 
-//mock data
+// mock data
 import lists from '../../mock-data/lists';
 
 const Directory = styled.div`
@@ -69,54 +69,54 @@ class Lists extends Component {
     super();
     this.state = {
       selectedList: 0,
-      lists: lists,
+      lists,
       showAll: false,
       allList: {
-        "listName": "All List",
-        "listItems": []
+        listName: 'All List',
+        listItems: []
       }
     };
     this.selectList.bind(this);
   }
 
+  showAll = () => {
+    const { allList } = this.state;
+    if (allList.listItems.length === 0) {
+      this.state.lists.forEach((list) => {
+        list.listItems.forEach((entry) => {
+          allList.listItems.push(entry);
+        });
+      });
+    }
+    this.setState({
+      showAll: true,
+      allList
+    });
+  }
+
   selectList(listName) {
-    const { lists } = this.state;
+    // const { lists } = this.state;
     const index = lists.findIndex(list => list.listName === listName);
 
     this.setState({
       selectedList: index,
       showAll: false
-    })
+    });
   }
 
-  showAll = () => {
-    let { allList } = this.state
-    if(allList.listItems.length===0){
-      this.state.lists.forEach(list => {
-        list.listItems.forEach(entry => {
-          allList.listItems.push(entry);
-        })
-      })
-    }
-    this.setState({
-      showAll: true,
-      allList: allList
-    })
-  }
   render() {
     const { allList, showAll } = this.state;
-    const lists = this.state.lists.map((list) =>
+    const listTitles = this.state.lists.map(list => (
       <li key={list.listName}>
-        <span className="fa-li" >
-          {this.state.lists[this.state.selectedList].listName === list.listName && !showAll ?
-            <Circle className="fas fa-check-circle"></Circle>
-            :
-            <Circle className="far fa-circle"></Circle>
+        <span className="fa-li">
+          {this.state.lists[this.state.selectedList].listName === list.listName && !showAll
+            ? <Circle className="fas fa-check-circle" />
+            : <Circle className="far fa-circle" />
           }
         </span>
         <SidebarTitle onClick={() => this.selectList(list.listName)}>{list.listName}</SidebarTitle>
       </li>
-    )
+    ));
     return (
 
       <Wrapper>
@@ -124,15 +124,24 @@ class Lists extends Component {
 
           <Directory>
             <ButtonWrapper>
-              <Button onClick={this.showAll} variant="contained" color="primary" >SHOW ALL</Button>
+              <Button onClick={this.showAll} variant="contained" color="primary">SHOW ALL</Button>
             </ButtonWrapper>
             <StyledList className="fa-ul">
-              {lists}
+              {listTitles}
             </StyledList>
           </Directory>
         </Section>
         <Section>
-          <MovieList list={showAll ? allList : this.state.lists[this.state.selectedList]} />
+          <MovieList
+            listItems={
+            showAll
+              ? allList.listItems : this.state.lists[this.state.selectedList].listItems
+          }
+            listName={
+            showAll
+              ? allList.listName : this.state.lists[this.state.selectedList].listName
+          }
+          />
         </Section>
         <Section />
       </Wrapper>

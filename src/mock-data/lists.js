@@ -1,484 +1,484 @@
 const lists = [
   {
-    "listName":"list1",
-    "listItems":[
+    listName: 'list1',
+    listItems: [
       {
-      "title": "Whiplash",
-      "year": 2014,
-      "cast": [
-        "Miles Teller",
-        "Melissa Benoist",
-        "Austin Stowell"
-      ],
-      "genres": [
-        "Drama"
-      ]
-    },
-    {
-      "title": "You're Not You",
-      "year": 2014,
-      "cast": [
-        "Hilary Swank",
-        "Emmy Rossum",
-        "Josh Duhamel",
-        "Frances Fisher"
-      ],
-      "genres": [
-        "Drama"
-      ]
-    }
-    ]
-  },
-  {
-    "listName":"list2",
-    "listItems":[
-      {
-        "title": "Dear White People",
-        "year": 2014,
-        "cast": [
-          "Tyler James Williams",
-          "Dennis Haysbert",
-          "Tessa Thompson",
-          "Kyle Gallner"
+        title: 'Whiplash',
+        year: 2014,
+        cast: [
+          'Miles Teller',
+          'Melissa Benoist',
+          'Austin Stowell'
         ],
-        "genres": [
-          "Drama"
+        genres: [
+          'Drama'
         ]
       },
       {
-        "title": "Fury",
-        "year": 2014,
-        "cast": [
-          "Brad Pitt",
-          "Shia LaBeouf",
-          "Logan Lerman",
-          "Michael Peña"
+        title: "You're Not You",
+        year: 2014,
+        cast: [
+          'Hilary Swank',
+          'Emmy Rossum',
+          'Josh Duhamel',
+          'Frances Fisher'
         ],
-        "genres": [
-          "War"
-        ]
-      },
-      {
-        "title": "Listen Up Philip",
-        "year": 2014,
-        "cast": [
-          "Jason Schwartzman",
-          "Elisabeth Moss",
-          "Jonathan Pryce"
-        ],
-        "genres": [
-          "Drama"
-        ]
-      },
-      {
-        "title": "Nightcrawler",
-        "year": 2014,
-        "cast": [
-          "Jake Gyllenhaal",
-          "Rene Russo",
-          "Riz Ahmed",
-          "Bill Paxton"
-        ],
-        "genres": [
-          "Thriller"
-        ]
-      },
-      {
-        "title": "Pernicious",
-        "year": 2014,
-        "cast": [
-          "Ciara Hanna",
-          "Emily O'Brien",
-          "Jackie Moore",
-          "Russell Geoffrey"
-        ],
-        "genres": [
-          "Horror"
-        ]
-      },
-      {
-        "title": "Young Ones",
-        "year": 2014,
-        "cast": [
-          "Kodi Smit-McPhee",
-          "Elle Fanning",
-          "Michael Shannon",
-          "Nicholas Hoult"
-        ],
-        "genres": [
-          "Science Fiction"
-        ]
-      },
-      {
-        "title": "Laggies",
-        "year": 2014,
-        "cast": [
-          "Keira Knightley",
-          "Chloë Grace Moretz",
-          "Sam Rockwell",
-          "Mark Webber"
-        ],
-        "genres": [
-          "Romance",
-          "Comedy"
-        ]
-      },
-      {
-        "title": "Ouija",
-        "year": 2014,
-        "cast": [
-          "Ana Coto",
-          "Olivia Cooke",
-          "Daren Kagasoff",
-          "Bianca A. Santos"
-        ],
-        "genres": [
-          "Horror"
-        ]
-      },
-      {
-        "title": "Interstellar",
-        "year": 2014,
-        "cast": [
-          "Anne Hathaway",
-          "Matthew McConaughey",
-          "Jessica Chastain",
-          "Michael Caine"
-        ],
-        "genres": [
-          "Science Fiction"
-        ]
-      },
-      {
-        "title": "A Merry Friggin' Christmas",
-        "year": 2014,
-        "cast": [
-          "Robin Williams",
-          "Joel McHale",
-          "Clark Duke",
-          "Oliver Platt"
-        ],
-        "genres": [
-          "Comedy"
+        genres: [
+          'Drama'
         ]
       }
     ]
   },
   {
-    "listName":"list3",
-    "listItems":[
+    listName: 'list2',
+    listItems: [
       {
-        "title": "Elsa & Fred",
-        "year": 2014,
-        "cast": [
-          "Shirley MacLaine",
-          "Christopher Plummer",
-          "Marcia Gay Harden"
+        title: 'Dear White People',
+        year: 2014,
+        cast: [
+          'Tyler James Williams',
+          'Dennis Haysbert',
+          'Tessa Thompson',
+          'Kyle Gallner'
         ],
-        "genres": [
-          "Comedy",
-          "Drama"
+        genres: [
+          'Drama'
         ]
       },
       {
-        "title": "Jessabelle",
-        "year": 2014,
-        "cast": [
-          "Sarah Snook",
-          "Mark Webber",
-          "Joelle Carter",
-          "Amber Stevens"
+        title: 'Fury',
+        year: 2014,
+        cast: [
+          'Brad Pitt',
+          'Shia LaBeouf',
+          'Logan Lerman',
+          'Michael Peña'
         ],
-        "genres": [
-          "Horror"
+        genres: [
+          'War'
         ]
       },
       {
-        "title": "The Peripheral",
-        "year": 2014,
-        "cast": [
-          "Randy Frank",
-          "Lynn Lowry"
+        title: 'Listen Up Philip',
+        year: 2014,
+        cast: [
+          'Jason Schwartzman',
+          'Elisabeth Moss',
+          'Jonathan Pryce'
         ],
-        "genres": [
-          "Horror"
+        genres: [
+          'Drama'
         ]
       },
       {
-        "title": "Beside Still Waters",
-        "year": 2014,
-        "cast": [
-          "Ryan Eggold",
-          "Brett Dalton",
-          "Beck Bennett"
+        title: 'Nightcrawler',
+        year: 2014,
+        cast: [
+          'Jake Gyllenhaal',
+          'Rene Russo',
+          'Riz Ahmed',
+          'Bill Paxton'
         ],
-        "genres": [
-          "Comedy",
-          "Drama"
+        genres: [
+          'Thriller'
         ]
       },
       {
-        "title": "Beyond the Lights",
-        "year": 2014,
-        "cast": [
-          "Gugu Mbatha-Raw",
-          "Minnie Driver",
-          "Nate Parker",
-          "Danny Glover"
+        title: 'Pernicious',
+        year: 2014,
+        cast: [
+          'Ciara Hanna',
+          "Emily O'Brien",
+          'Jackie Moore',
+          'Russell Geoffrey'
         ],
-        "genres": [
-          "Romance"
+        genres: [
+          'Horror'
         ]
       },
       {
-        "title": "Dumb and Dumber To",
-        "year": 2014,
-        "cast": [
-          "Jim Carrey",
-          "Jeff Daniels",
-          "Laurie Holden",
-          "Jennifer Lawrence"
+        title: 'Young Ones',
+        year: 2014,
+        cast: [
+          'Kodi Smit-McPhee',
+          'Elle Fanning',
+          'Michael Shannon',
+          'Nicholas Hoult'
         ],
-        "genres": [
-          "Comedy"
+        genres: [
+          'Science Fiction'
         ]
       },
       {
-        "title": "Foxcatcher",
-        "year": 2014,
-        "cast": [
-          "Steve Carell",
-          "Channing Tatum",
-          "Mark Ruffalo",
-          "Vanessa Redgrave"
+        title: 'Laggies',
+        year: 2014,
+        cast: [
+          'Keira Knightley',
+          'Chloë Grace Moretz',
+          'Sam Rockwell',
+          'Mark Webber'
         ],
-        "genres": [
-          "Drama"
+        genres: [
+          'Romance',
+          'Comedy'
         ]
       },
       {
-        "title": "The Homesman",
-        "year": 2014,
-        "cast": [
-          "Tommy Lee Jones",
-          "Hilary Swank",
-          "Grace Gummer",
-          "Miranda Otto"
+        title: 'Ouija',
+        year: 2014,
+        cast: [
+          'Ana Coto',
+          'Olivia Cooke',
+          'Daren Kagasoff',
+          'Bianca A. Santos'
         ],
-        "genres": [
-          "Drama"
+        genres: [
+          'Horror'
         ]
       },
       {
-        "title": "Saving Christmas",
-        "year": 2014,
-        "cast": [
-          "Kirk Cameron",
-          "Darren Doane",
-          "David Shannon",
-          "Bridgette Ridenour"
+        title: 'Interstellar',
+        year: 2014,
+        cast: [
+          'Anne Hathaway',
+          'Matthew McConaughey',
+          'Jessica Chastain',
+          'Michael Caine'
         ],
-        "genres": []
-      },
-      {
-        "title": "Witching Hour",
-        "year": 2014,
-        "cast": [
-          "Reanna Roanne",
-          "Emily Johnson-Erday",
-          "Patrick Ferrara"
-        ],
-        "genres": [
-          "Horror"
+        genres: [
+          'Science Fiction'
         ]
       },
       {
-        "title": "The Hunger Games: Mockingjay – Part 1",
-        "year": 2014,
-        "cast": [
-          "Josh Hutcherson",
-          "Jennifer Lawrence",
-          "Liam Hemsworth",
-          "Donald Sutherland"
+        title: "A Merry Friggin' Christmas",
+        year: 2014,
+        cast: [
+          'Robin Williams',
+          'Joel McHale',
+          'Clark Duke',
+          'Oliver Platt'
         ],
-        "genres": [
-          "Adventure"
+        genres: [
+          'Comedy'
+        ]
+      }
+    ]
+  },
+  {
+    listName: 'list3',
+    listItems: [
+      {
+        title: 'Elsa & Fred',
+        year: 2014,
+        cast: [
+          'Shirley MacLaine',
+          'Christopher Plummer',
+          'Marcia Gay Harden'
+        ],
+        genres: [
+          'Comedy',
+          'Drama'
         ]
       },
       {
-        "title": "Horrible Bosses 2",
-        "year": 2014,
-        "cast": [
-          "Jason Bateman",
-          "Charlie Day",
-          "Jennifer Aniston",
-          "Jason Sudeikis",
-          "Jamie Foxx"
+        title: 'Jessabelle',
+        year: 2014,
+        cast: [
+          'Sarah Snook',
+          'Mark Webber',
+          'Joelle Carter',
+          'Amber Stevens'
         ],
-        "genres": [
-          "Comedy"
+        genres: [
+          'Horror'
         ]
       },
       {
-        "title": "Penguins of Madagascar",
-        "year": 2014,
-        "cast": [
-          "Tom McGrath",
-          "John DiMaggio",
-          "Christopher Knights"
+        title: 'The Peripheral',
+        year: 2014,
+        cast: [
+          'Randy Frank',
+          'Lynn Lowry'
         ],
-        "genres": [
-          "Animated"
+        genres: [
+          'Horror'
         ]
       },
       {
-        "title": "Comet",
-        "year": 2014,
-        "cast": [
-          "Emmy Rossum",
-          "Justin Long",
-          "Eric Winter",
-          "Kayla Servi"
+        title: 'Beside Still Waters',
+        year: 2014,
+        cast: [
+          'Ryan Eggold',
+          'Brett Dalton',
+          'Beck Bennett'
         ],
-        "genres": [
-          "Comedy",
-          "Drama"
+        genres: [
+          'Comedy',
+          'Drama'
         ]
       },
       {
-        "title": "Wild",
-        "year": 2014,
-        "cast": [
-          "Reese Witherspoon",
-          "Laura Dern",
-          "Thomas Sadoski",
-          "Michiel Huisman"
+        title: 'Beyond the Lights',
+        year: 2014,
+        cast: [
+          'Gugu Mbatha-Raw',
+          'Minnie Driver',
+          'Nate Parker',
+          'Danny Glover'
         ],
-        "genres": [
-          "Biography"
+        genres: [
+          'Romance'
         ]
       },
       {
-        "title": "Exodus: Gods and Kings",
-        "year": 2014,
-        "cast": [
-          "Christian Bale",
-          "Joel Edgerton",
-          "Aaron Paul",
-          "John Turturro"
+        title: 'Dumb and Dumber To',
+        year: 2014,
+        cast: [
+          'Jim Carrey',
+          'Jeff Daniels',
+          'Laurie Holden',
+          'Jennifer Lawrence'
         ],
-        "genres": [
-          "Drama"
+        genres: [
+          'Comedy'
         ]
       },
       {
-        "title": "Inherent Vice",
-        "year": 2014,
-        "cast": [
-          "Joaquin Phoenix",
-          "Owen Wilson",
-          "Reese Witherspoon",
-          "Benicio del Toro"
+        title: 'Foxcatcher',
+        year: 2014,
+        cast: [
+          'Steve Carell',
+          'Channing Tatum',
+          'Mark Ruffalo',
+          'Vanessa Redgrave'
         ],
-        "genres": [
-          "Comedy",
-          "Drama"
+        genres: [
+          'Drama'
         ]
       },
       {
-        "title": "The Color of Time",
-        "year": 2014,
-        "cast": [
-          "James Franco",
-          "Henry Hopper",
-          "Mila Kunis",
-          "Zach Braff"
+        title: 'The Homesman',
+        year: 2014,
+        cast: [
+          'Tommy Lee Jones',
+          'Hilary Swank',
+          'Grace Gummer',
+          'Miranda Otto'
         ],
-        "genres": [
-          "Drama"
+        genres: [
+          'Drama'
         ]
       },
       {
-        "title": "Top Five",
-        "year": 2014,
-        "cast": [
-          "Chris Rock",
-          "Rosario Dawson",
-          "Kevin Hart",
-          "Gabrielle Union"
+        title: 'Saving Christmas',
+        year: 2014,
+        cast: [
+          'Kirk Cameron',
+          'Darren Doane',
+          'David Shannon',
+          'Bridgette Ridenour'
         ],
-        "genres": [
-          "Comedy"
+        genres: []
+      },
+      {
+        title: 'Witching Hour',
+        year: 2014,
+        cast: [
+          'Reanna Roanne',
+          'Emily Johnson-Erday',
+          'Patrick Ferrara'
+        ],
+        genres: [
+          'Horror'
         ]
       },
       {
-        "title": "Goodbye To All That",
-        "year": 2014,
-        "cast": [
-          "Paul Schneider",
-          "Melanie Lynskey",
-          "Anna Camp"
+        title: 'The Hunger Games: Mockingjay – Part 1',
+        year: 2014,
+        cast: [
+          'Josh Hutcherson',
+          'Jennifer Lawrence',
+          'Liam Hemsworth',
+          'Donald Sutherland'
         ],
-        "genres": [
-          "Comedy"
+        genres: [
+          'Adventure'
         ]
       },
       {
-        "title": "Annie",
-        "year": 2014,
-        "cast": [
-          "Jamie Foxx",
-          "Quvenzhané Wallis",
-          "Rose Byrne",
-          "Bobby Cannavale"
+        title: 'Horrible Bosses 2',
+        year: 2014,
+        cast: [
+          'Jason Bateman',
+          'Charlie Day',
+          'Jennifer Aniston',
+          'Jason Sudeikis',
+          'Jamie Foxx'
         ],
-        "genres": [
-          "Comedy",
-          "Drama"
+        genres: [
+          'Comedy'
         ]
       },
       {
-        "title": "Night at the Museum: Secret of the Tomb",
-        "year": 2014,
-        "cast": [
-          "Ben Stiller",
-          "Robin Williams",
-          "Owen Wilson",
-          "Ben Kingsley"
+        title: 'Penguins of Madagascar',
+        year: 2014,
+        cast: [
+          'Tom McGrath',
+          'John DiMaggio',
+          'Christopher Knights'
         ],
-        "genres": [
-          "Comedy"
+        genres: [
+          'Animated'
         ]
       },
       {
-        "title": "Big Eyes",
-        "year": 2014,
-        "cast": [
-          "Amy Adams",
-          "Christoph Waltz",
-          "Danny Huston",
-          "Terence Stamp"
+        title: 'Comet',
+        year: 2014,
+        cast: [
+          'Emmy Rossum',
+          'Justin Long',
+          'Eric Winter',
+          'Kayla Servi'
         ],
-        "genres": [
-          "Drama"
+        genres: [
+          'Comedy',
+          'Drama'
         ]
       },
       {
-        "title": "The Interview",
-        "year": 2014,
-        "cast": [
-          "James Franco",
-          "Seth Rogen",
-          "Lizzy Caplan",
-          "Randall Park"
+        title: 'Wild',
+        year: 2014,
+        cast: [
+          'Reese Witherspoon',
+          'Laura Dern',
+          'Thomas Sadoski',
+          'Michiel Huisman'
         ],
-        "genres": [
-          "Action",
-          "Comedy"
+        genres: [
+          'Biography'
+        ]
+      },
+      {
+        title: 'Exodus: Gods and Kings',
+        year: 2014,
+        cast: [
+          'Christian Bale',
+          'Joel Edgerton',
+          'Aaron Paul',
+          'John Turturro'
+        ],
+        genres: [
+          'Drama'
+        ]
+      },
+      {
+        title: 'Inherent Vice',
+        year: 2014,
+        cast: [
+          'Joaquin Phoenix',
+          'Owen Wilson',
+          'Reese Witherspoon',
+          'Benicio del Toro'
+        ],
+        genres: [
+          'Comedy',
+          'Drama'
+        ]
+      },
+      {
+        title: 'The Color of Time',
+        year: 2014,
+        cast: [
+          'James Franco',
+          'Henry Hopper',
+          'Mila Kunis',
+          'Zach Braff'
+        ],
+        genres: [
+          'Drama'
+        ]
+      },
+      {
+        title: 'Top Five',
+        year: 2014,
+        cast: [
+          'Chris Rock',
+          'Rosario Dawson',
+          'Kevin Hart',
+          'Gabrielle Union'
+        ],
+        genres: [
+          'Comedy'
+        ]
+      },
+      {
+        title: 'Goodbye To All That',
+        year: 2014,
+        cast: [
+          'Paul Schneider',
+          'Melanie Lynskey',
+          'Anna Camp'
+        ],
+        genres: [
+          'Comedy'
+        ]
+      },
+      {
+        title: 'Annie',
+        year: 2014,
+        cast: [
+          'Jamie Foxx',
+          'Quvenzhané Wallis',
+          'Rose Byrne',
+          'Bobby Cannavale'
+        ],
+        genres: [
+          'Comedy',
+          'Drama'
+        ]
+      },
+      {
+        title: 'Night at the Museum: Secret of the Tomb',
+        year: 2014,
+        cast: [
+          'Ben Stiller',
+          'Robin Williams',
+          'Owen Wilson',
+          'Ben Kingsley'
+        ],
+        genres: [
+          'Comedy'
+        ]
+      },
+      {
+        title: 'Big Eyes',
+        year: 2014,
+        cast: [
+          'Amy Adams',
+          'Christoph Waltz',
+          'Danny Huston',
+          'Terence Stamp'
+        ],
+        genres: [
+          'Drama'
+        ]
+      },
+      {
+        title: 'The Interview',
+        year: 2014,
+        cast: [
+          'James Franco',
+          'Seth Rogen',
+          'Lizzy Caplan',
+          'Randall Park'
+        ],
+        genres: [
+          'Action',
+          'Comedy'
         ]
       }
     ]
   }
-]
+];
 
 export default lists;

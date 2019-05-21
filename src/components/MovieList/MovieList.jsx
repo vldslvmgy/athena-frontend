@@ -4,8 +4,8 @@ import PropTypes from 'prop-types';
 import AddIcon from '@material-ui/icons/Add';
 import Fab from '@material-ui/core/Fab';
 import List from '@material-ui/core/List';
-import MovieListItem from './MovieListItem';
 import TextField from '@material-ui/core/TextField';
+import MovieListItem from './MovieListItem';
 
 const StyledList = styled(List)`
 `;
@@ -19,47 +19,43 @@ const Header = styled.div`
 class MovieList extends Component {
   constructor(props) {
     super();
-    const { list } = props
     this.state = {
-      listName: list.listName,
-      filteredList: list.listItems,
-      searchTerm:""
+      filteredList: props.listItems,
+      searchTerm: ''
     };
   }
 
-  componentDidUpdate(prevProps) {
-    const { list } = this.props;
-    if (list.listName !== prevProps.list.listName) {
-      this.setState({
-        listName:list.listName,
-        filteredList: list.listItems,
-        searchTerm:""
-      })
-    }
-  }
-  filter = event => {
-    const { list } = this.props;
-    const filteredList = list.listItems.filter(function (listItem) {
+  filter = (event) => {
+    // const { list } = this.props;
+    const filteredList = this.props.listItems.filter(listItem => (
       // let words = listItem.title.toLowerCase().split(" ");
-      return listItem.title.toLowerCase().includes(event.target.value.toLowerCase());
-      // let searchWords = event.target.value.toLowerCase().split(" ")
-      // return words.some((word)=>{
-      //   return word.startsWith(event.target.value.toLowerCase())
-      // })
-    })
+      listItem.title.toLowerCase().includes(event.target.value.toLowerCase())
+    ));
+    // let searchWords = event.target.value.toLowerCase().split(" ")
+    // return words.some((word)=>{
+    //   return word.startsWith(event.target.value.toLowerCase())
+    // })
+    // );
     this.setState({
-      listName: list.listName,
-      filteredList: filteredList,
-      searchTerm:event.target.value
-    })
+      filteredList,
+      searchTerm: event.target.value
+    });
+  }
+
+  UNSAFE_componentWillReceiveProps(nextProps) {
+    if (nextProps.listName !== this.props.listName) {
+      this.setState({
+        filteredList: nextProps.listItems
+      });
+    }
   }
 
   render() {
-    const { listName, filteredList, searchTerm } = this.state;
+    const { filteredList, searchTerm } = this.state;
     return (
       <React.Fragment>
         <Header>
-          <h1>{listName}</h1>
+          <h1>{this.props.listName}</h1>
           <Fab color="primary" size="small">
             <AddIcon />
           </Fab>
@@ -73,14 +69,13 @@ class MovieList extends Component {
           margin="normal"
           value={searchTerm}
           variant="outlined"
-          onChange={this.filter} />
+          onChange={this.filter}
+        />
         <StyledList>
           {
-            filteredList.map((movie, index) => {
-              return (
-                <MovieListItem key={index} movie={movie} />
-              )
-            })
+            filteredList.map((movie, index) => (
+              <MovieListItem key={index} movie={movie} />
+            ))
           }
         </StyledList>
       </React.Fragment>
@@ -89,7 +84,8 @@ class MovieList extends Component {
 }
 
 MovieList.propTypes = {
-  list: PropTypes.object
+  listItems: PropTypes.arrayOf(PropTypes.object),
+  listName: PropTypes.string,
 };
 
 export default MovieList;
