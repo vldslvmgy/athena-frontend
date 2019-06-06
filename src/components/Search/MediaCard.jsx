@@ -51,7 +51,7 @@ function MediaCard(props) {
       />
       <CardContent>
         <Typography component="h5" variant="h5" className={classes.titleText}>
-          {media.name}
+          {media.title}
         </Typography>
         <Typography variant="subtitle1" color="textSecondary" className={classes.dateText}>
           {media.releaseDate}

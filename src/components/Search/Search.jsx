@@ -16,7 +16,7 @@ const SEARCH_MEDIA = gql`
     ) {
       type
       id
-      name
+      title
       releaseDate
     }
   }
@@ -64,6 +64,7 @@ class Search extends Component {
           variables={{ search }}
         >
           {({ loading, data }) => {
+            console.log('data: ', data);
             const mediaCards = [];
             if (data.mediaSearch) {
               data.mediaSearch.forEach((media) => {
