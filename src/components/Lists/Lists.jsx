@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
 import { withRouter } from 'react-router-dom';
-import { withStyles } from '@material-ui/core/styles';
 import Button from '@material-ui/core/Button';
 import MovieList from '../MovieList';
 
@@ -18,9 +17,9 @@ position:relative;
 `;
 
 const ButtonWrapper = styled.div`
-margin-top:20px;
-height:20%;
-width: 100%;
+  margin-top:20px;
+  height:20%;
+  width: 100%;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -57,12 +56,6 @@ const Wrapper = styled.div`
 const Section = styled.div`
   width: 100%;
 `;
-
-const styles = theme => ({
-  button: {
-    margin: theme.spacing.unit,
-  }
-});
 
 class Lists extends Component {
   constructor() {
@@ -149,4 +142,4 @@ class Lists extends Component {
   }
 }
 
-export default withStyles(styles)(withRouter(Lists));
+export default withRouter(Lists);
