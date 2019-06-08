@@ -56,7 +56,7 @@ class MovieListItem extends Component {
 
     return (
       <React.Fragment>
-        <ListItem button onClick={this.handleToggleCollapse}>
+        <ListItem divider button onClick={this.handleToggleCollapse}>
           <ListItemText
             primary={primary}
           />
@@ -95,7 +95,7 @@ class MovieListItem extends Component {
 }
 
 MovieListItem.propTypes = {
-  movie: PropTypes.object
+  movie: PropTypes.shape({ title: PropTypes.string.isRequired })
 };
 
 export default MovieListItem;

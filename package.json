@@ -42,6 +42,7 @@
     "extends": "airbnb",
     "parser": "babel-eslint",
     "rules": {
+      "camelcase":["error", {"allow": ["^UNSAFE_"]}],
       "import/prefer-default-export": "off",
       "react/destructuring-assignment": "off",
       "consistent-return": "warn",
