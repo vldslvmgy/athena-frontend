@@ -1,7 +1,8 @@
 import React from 'react';
 import { withStyles } from '@material-ui/core/styles';
-import InputBase from '@material-ui/core/InputBase';
+import Input from '@material-ui/core/Input';
 import SearchIcon from '@material-ui/icons/Search';
+import { withRouter } from 'react-router-dom';
 import { fade } from '@material-ui/core/styles/colorManipulator';
 
 const styles = theme => ({
@@ -49,23 +50,48 @@ const styles = theme => ({
   }
 });
 
-function SearchBar(props) {
-  const { classes } = props;
+class SearchBar extends React.Component {
+  constructor() {
+    super();
+    this.state = {
+      search: ''
+    };
+  }
 
-  return (
-    <div className={classes.search}>
-      <div className={classes.searchIcon}>
-        <SearchIcon />
+  handleSubmit= (event) => {
+    event.preventDefault();
+    const search = `?k=${this.state.search}`;
+    this.props.history.push({
+      pathname: '/search',
+      search
+    });
+  };
+
+  handleChange = (event) => {
+    this.setState({ search: event.target.value });
+  };
+
+  render() {
+    const { classes } = this.props;
+
+    return (
+      <div className={classes.search}>
+        <form onSubmit={this.handleSubmit}>
+          <div className={classes.searchIcon}>
+            <SearchIcon />
+          </div>
+          <Input
+            onChange={this.handleChange}
+            placeholder="Search…"
+            classes={{
+              root: classes.inputRoot,
+              input: classes.inputInput,
+            }}
+          />
+        </form>
       </div>
-      <InputBase
-        placeholder="Search…"
-        classes={{
-          root: classes.inputRoot,
-          input: classes.inputInput,
-        }}
-      />
-    </div>
-  );
+    );
+  }
 }
 
-export default withStyles(styles)(SearchBar);
+export default withRouter(withStyles(styles)(SearchBar));

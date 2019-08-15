@@ -11,6 +11,7 @@ import Footer from './components/Footer/Footer';
 import Lists from './components/Lists/Lists';
 import Login from './components/Login/Login';
 import Navbar from './components/Navbar/Navbar';
+import Search from './components/Search/Search';
 
 const IS_LOGGED_IN = gql`
   {
@@ -57,6 +58,7 @@ class App extends Component {
               <Route exact path="/" render={() => (<Redirect to="/login" />)} />
               <Route path="/login" render={() => (<Login />)} />
               <Route path="/profile" render={() => (<Profile />)} />
+              <Route exact path="/search" render={() => (<Search />)} />
               <Route path="/lists" component={Lists} />
             </Content>
             <Footer />
