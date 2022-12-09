@@ -24,7 +24,7 @@
     "graphql-tag": "^2.10.1",
     "mdbreact": "^4.10.0",
     "prop-types": "^15.7.2",
-    "qs": "^6.7.0",
+    "qs": "^6.7.3",
     "react": "^16.8.1",
     "react-apollo": "^2.5.4",
     "react-dom": "^16.8.1",
